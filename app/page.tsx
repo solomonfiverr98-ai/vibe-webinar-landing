@@ -3,7 +3,7 @@
 import { useActionState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { registerUser, type ActionState } from "./actions/register";
-import { CheckCircle2, Calendar, Clock, Hourglass, Smartphone, AlertTriangle, ArrowRight, Star, Loader2 } from "lucide-react";
+import { CheckCircle2, Calendar, Clock, Hourglass, Smartphone, AlertTriangle, ArrowRight, Star, Loader2, Target, Zap, Shield, Rocket, Trophy, AlertCircle } from "lucide-react";
 import ClientCountdown from "@/components/ClientCountdown";
 import { SubmitButton } from "@/components/SubmitButton";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
@@ -81,8 +81,8 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5 py-4 px-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-2">
-                <span className="text-primary font-body text-[11px] font-bold uppercase tracking-[0.2em] bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
-                    🎯 FREE LIVE TRAINING
+                <span className="text-primary font-body text-[11px] font-bold uppercase tracking-[0.2em] bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 flex items-center gap-2">
+                    <Target className="w-3.5 h-3.5" /> FREE LIVE TRAINING
                 </span>
             </div>
             <a href="#register" className="bg-primary text-background rounded-full px-6 py-2.5 font-body text-sm font-bold transition-all hover:bg-primary-hover hover:scale-105 active:scale-95 shadow-neon">
@@ -120,11 +120,11 @@ export default function Home() {
         </div>
 
         <div className="hero-animate w-full max-w-md mx-auto mb-16">
-            <a href="#register" className="group bg-primary text-background rounded-full px-12 py-6 font-heading text-xl md:text-2xl font-black block transition-all hover:bg-primary-hover hover:scale-[1.02] active:scale-95 shadow-neon-strong">
-                👉 Reserve My Free Spot
+            <a href="#register" className="group bg-primary text-background rounded-full px-12 py-6 font-heading text-xl md:text-2xl font-black flex items-center justify-center gap-3 transition-all hover:bg-primary-hover hover:scale-[1.02] active:scale-95 shadow-neon-strong">
+                Reserve My Free Spot <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </a>
             <p className="text-muted font-body text-[13px] mt-6 flex items-center justify-center gap-2 font-medium opacity-80">
-                ⚡ Only 12 seats remaining for this session
+                <Zap className="w-3.5 h-3.5 text-primary" /> Only 12 seats remaining for this session
             </p>
         </div>
 
@@ -144,34 +144,49 @@ export default function Home() {
 
       {/* SECTION 3: PAIN */}
       <section className="section-animate bg-surface py-32 px-6 border-y border-white/5">
-        <div className="max-w-3xl mx-auto text-center">
-            <span className="reveal text-primary font-body text-[12px] font-bold uppercase tracking-[0.3em] mb-6 block">
-                SOUND FAMILIAR?
-            </span>
-            <h2 className="reveal font-heading text-4xl md:text-6xl font-bold mb-16">Does this sound like you?</h2>
-            
-            <div className="space-y-4">
-                { [
-                    "Stuck watching YouTube videos but never making a dime",
-                    "Feeling overwhelmed by the technical 'mumbo-jumbo'",
-                    "Trying everything but nothing seems to stick"
-                ].map((pain, idx) => (
-                    <div key={idx} className="reveal glass border border-white/5 rounded-2xl p-8 text-left flex items-start gap-5 transition-all hover:border-danger/30 hover:bg-danger/[0.01] hover:neon-glow-danger group">
-                        <div className="w-10 h-10 rounded-full bg-danger/10 border border-danger/20 flex items-center justify-center shrink-0">
-                            <span className="text-danger font-bold">✕</span>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="reveal order-2 lg:order-1">
+                <span className="text-primary font-body text-[12px] font-bold uppercase tracking-[0.3em] mb-6 block">
+                    SOUND FAMILIAR?
+                </span>
+                <h2 className="font-heading text-4xl md:text-6xl font-bold mb-16">Does this sound like you?</h2>
+                
+                <div className="space-y-4">
+                    { [
+                        "Stuck watching YouTube videos but never making a dime",
+                        "Feeling overwhelmed by the technical 'mumbo-jumbo'",
+                        "Trying everything but nothing seems to stick"
+                    ].map((pain, idx) => (
+                        <div key={idx} className="glass border border-white/5 rounded-2xl p-8 text-left flex items-start gap-5 transition-all hover:border-danger/30 hover:bg-danger/[0.01] hover:neon-glow-danger group">
+                            <div className="w-10 h-10 rounded-full bg-danger/10 border border-danger/20 flex items-center justify-center shrink-0">
+                                <span className="text-danger font-bold">✕</span>
+                            </div>
+                            <p className="text-secondary font-body text-lg md:text-xl leading-relaxed group-hover:text-foreground transition-colors">{pain}</p>
                         </div>
-                        <p className="text-secondary font-body text-lg md:text-xl leading-relaxed group-hover:text-foreground transition-colors">{pain}</p>
-                    </div>
-                ))}
+                    ))}
+                </div>
+
+                <div className="mt-20 space-y-6">
+                    <p className="font-heading text-2xl md:text-4xl font-bold opacity-60">
+                        It's not your fault.
+                    </p>
+                    <p className="font-heading text-3xl md:text-5xl font-bold text-primary leading-tight">
+                        You've just been following <br /> the wrong blueprints.
+                    </p>
+                </div>
             </div>
 
-            <div className="mt-20 space-y-6">
-                <p className="reveal font-heading text-2xl md:text-4xl font-bold opacity-60">
-                    It's not your fault.
-                </p>
-                <p className="reveal font-heading text-3xl md:text-5xl font-bold text-primary">
-                    You've just been following <br /> the wrong blueprints.
-                </p>
+            <div className="reveal order-1 lg:order-2 relative group parallax-container">
+                <div className="aspect-square relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
+                    <Image 
+                        src="/pain-abstract.png" 
+                        alt="Avoid generic traps"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110 parallax-img opacity-60 grayscale hover:grayscale-0 transition-all"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                </div>
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-danger/10 blur-[80px] rounded-full pointer-events-none" />
             </div>
         </div>
       </section>
@@ -183,28 +198,46 @@ export default function Home() {
         </span>
         <h2 className="reveal font-heading text-4xl md:text-7xl font-bold text-center mb-24">What You'll Discover</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-                { title: "The $1,000 Step-by-Step", detail: "The exact, repeatable system you can start using tonight." },
-                { title: "No Experience Needed", detail: "How to go from zero to earning without technical knowledge." },
-                { title: "The 3 Fatal Mistakes", detail: "The reason 95% of beginners fail and how to avoid it." },
-                { title: "2026 Strategy", detail: "What's actually working right now—not 5 years ago." }
-            ].map((point, idx) => (
-                <div key={idx} className="reveal glass-card rounded-[2.5rem] p-10 flex flex-col gap-6 transition-all hover:border-primary/50 hover:bg-primary/[0.01] hover:neon-glow group">
-                    <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center">
-                        <CheckCircle2 className="text-primary w-7 h-7" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {[
+                    { title: "The $1,000 Step-by-Step", detail: "The exact, repeatable system you can start using tonight." },
+                    { title: "No Experience Needed", detail: "How to go from zero to earning without technical knowledge." },
+                    { title: "The 3 Fatal Mistakes", detail: "The reason 95% of beginners fail and how to avoid it." },
+                    { title: "2026 Strategy", detail: "What's actually working right now—not 5 years ago." }
+                ].map((point, idx) => (
+                    <div key={idx} className="reveal glass-card rounded-[2.5rem] p-10 flex flex-col gap-6 transition-all hover:border-primary/50 hover:bg-primary/[0.01] hover:neon-glow group">
+                        <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                            <CheckCircle2 className="text-primary w-7 h-7" />
+                        </div>
+                        <div>
+                            <h3 className="font-heading text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{point.title}</h3>
+                            <p className="text-muted font-body text-lg leading-relaxed">{point.detail}</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="font-heading text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{point.title}</h3>
-                        <p className="text-muted font-body text-lg leading-relaxed">{point.detail}</p>
-                    </div>
+                ))}
+            </div>
+            
+            <div className="reveal relative hidden lg:block group parallax-container">
+                <div className="aspect-[3/4] relative rounded-[3rem] overflow-hidden border border-white/10 shadow-massive">
+                    <Image 
+                        src="/promise-abstract.png" 
+                        alt="The Future of Earning"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110 parallax-img"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
-            ))}
+                {/* Floating Ornament Icon */}
+                <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-primary rounded-full flex items-center justify-center shadow-neon rotate-12 z-20">
+                    <Zap className="text-background w-10 h-10" />
+                </div>
+            </div>
         </div>
 
         <div className="reveal mt-20 text-center">
-            <a href="#register" className="inline-block bg-white text-background rounded-full px-12 py-5 font-heading text-xl font-black transition-all hover:bg-primary hover:text-background hover:scale-105 shadow-xl">
-                👇 I'm Ready — Reserve My Spot
+            <a href="#register" className="group inline-flex items-center gap-3 bg-white text-background rounded-full px-12 py-5 font-heading text-xl font-black transition-all hover:bg-primary hover:text-background hover:scale-105 shadow-xl">
+                I'm Ready — Reserve My Spot <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </a>
         </div>
       </section>
@@ -242,12 +275,13 @@ export default function Home() {
 
                 <div className="reveal flex flex-wrap gap-4">
                     {[
-                        "💰 Earned $1k+ From Scratch",
-                        "🎓 500+ Students Mentored",
-                        "🌟 Top-Rated Webinar"
+                        { icon: Trophy, label: "Earned $1k+ From Scratch" },
+                        { icon: Star, label: "500+ Students Mentored" },
+                        { icon: CheckCircle2, label: "Top-Rated Webinar" }
                     ].map((badge, idx) => (
-                        <div key={idx} className="glass rounded-2xl px-6 py-4 font-body text-sm font-bold text-secondary">
-                            {badge}
+                        <div key={idx} className="glass rounded-2xl px-6 py-4 font-body text-sm font-bold text-secondary flex items-center gap-3">
+                            <badge.icon className="w-4 h-4 text-primary" />
+                            {badge.label}
                         </div>
                     ))}
                 </div>
@@ -317,7 +351,13 @@ export default function Home() {
                 <span className="text-danger">Not a Replay.</span>
             </h2>
 
-            <div className="reveal space-y-6 mb-20 max-w-2xl mx-auto">
+            <div className="reveal space-y-6 mb-20 max-w-2xl mx-auto relative">
+                {/* Visual Ornament: Pulse Circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+                    <div className="w-80 h-80 rounded-full border border-primary/20 animate-ping opacity-20" />
+                    <div className="absolute inset-0 w-80 h-80 rounded-full border border-primary/10 animate-pulse opacity-10" />
+                </div>
+
                 <p className="text-secondary font-body text-xl md:text-2xl leading-relaxed">
                     If you miss this, you miss the opportunity to ask questions, get live feedback, and see the system in action.
                 </p>
@@ -328,7 +368,7 @@ export default function Home() {
                         "Exclusive strategies shared ONLY live"
                     ].map((item, idx) => (
                         <div key={idx} className="flex items-center gap-3 font-body text-lg font-bold">
-                            <span className="text-primary">⚡</span>
+                            <Zap className="text-primary w-5 h-5" />
                             <span>{item}</span>
                         </div>
                     ))}
@@ -375,8 +415,8 @@ export default function Home() {
                         {state?.error?.email && <p className="text-danger text-[12px] font-bold ml-4">{state.error.email[0]}</p>}
                     </div>
 
-                    <SubmitButton className="w-full bg-primary text-background rounded-full py-6 font-heading text-2xl font-black transition-all hover:bg-primary-hover hover:scale-[1.01] shadow-neon-strong active:scale-95 flex items-center justify-center gap-3 mt-10">
-                        🚀 YES, RESERVE MY SPOT
+                    <SubmitButton className="w-full bg-primary text-background rounded-full py-6 font-heading text-2xl font-black transition-all hover:bg-primary-hover hover:scale-[1.01] shadow-neon-strong active:scale-95 flex items-center justify-center gap-3 mt-10 group">
+                        YES, RESERVE MY SPOT <Rocket className="w-6 h-6 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                     </SubmitButton>
                     
                     {state?.error?._form && (
@@ -386,8 +426,8 @@ export default function Home() {
                         </div>
                     )}
                     
-                    <p className="text-center font-body text-[11px] text-muted/40 mt-8 font-medium">
-                        🛡️ Your email is safe. I hate spam as much as you do.
+                    <p className="text-center flex items-center justify-center gap-2 font-body text-[11px] text-muted/40 mt-8 font-medium">
+                        <Shield className="w-3 h-3" /> Your email is safe. I hate spam as much as you do.
                     </p>
                 </form>
             </div>
@@ -406,8 +446,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="reveal bg-surface border border-white/5 rounded-[3rem] p-12 flex flex-col items-center gap-6">
-                    <span className="text-5xl">🛑</span>
+                <div className="reveal glass-card rounded-[3rem] p-12 flex flex-col items-center gap-6 border-danger/20">
+                    <div className="w-16 h-16 rounded-full bg-danger/10 flex items-center justify-center">
+                        <AlertCircle className="w-8 h-8 text-danger" />
+                    </div>
                     <h4 className="font-heading text-2xl font-black text-danger uppercase italic">Stay The Same</h4>
                     <p className="text-muted font-body text-lg leading-relaxed flex-grow">
                         Keep trying to figure it out alone. Wasting time. Getting nowhere.
@@ -415,7 +457,9 @@ export default function Home() {
                 </div>
 
                 <div className="reveal bg-surface border-2 border-primary/50 shadow-neon rounded-[3rem] p-12 flex flex-col items-center gap-6 scale-105 md:scale-110 z-20">
-                    <span className="text-5xl">⚡</span>
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Zap className="w-8 h-8 text-primary" />
+                    </div>
                     <h4 className="font-heading text-2xl font-black text-primary uppercase italic">Take The Leap</h4>
                     <p className="text-white font-body text-lg leading-relaxed flex-grow font-bold">
                         Follow a proven roadmap. Get the shortcuts. Start seeing results.
@@ -423,8 +467,10 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="reveal">
-                <a href="#register" className="bg-primary text-background rounded-full px-16 py-7 font-heading text-2xl font-black block max-w-lg mx-auto transition-all hover:bg-primary-hover hover:scale-105 shadow-neon-strong">
+            <div className="reveal relative">
+                {/* Floating Ornament 3D effect */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 blur-[100px] -z-10 animate-pulse" />
+                <a href="#register" className="bg-primary text-background rounded-full px-16 py-7 font-heading text-2xl font-black block max-w-lg mx-auto transition-all hover:bg-primary-hover hover:scale-105 shadow-neon-strong relative z-10">
                     Reserve My Free Spot Now
                 </a>
             </div>

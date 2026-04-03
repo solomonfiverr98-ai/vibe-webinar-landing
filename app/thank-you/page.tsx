@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { CheckCircle2, Calendar, Smartphone, AlertTriangle, ArrowRight } from "lucide-react";
+import { CheckCircle2, Calendar, Smartphone, AlertTriangle, ArrowRight, Trophy, Star, Zap } from "lucide-react";
 import gsap from "gsap";
 
 export default function ThankYou() {
@@ -34,7 +34,9 @@ export default function ThankYou() {
   return (
     <main ref={containerRef} className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center py-20 px-6 text-center max-w-4xl mx-auto selection:bg-primary selection:text-background overflow-hidden">
       <div className="mb-8">
-        <span className="text-8xl md:text-9xl animate-bounce inline-block mb-8 animate-in">🎉</span>
+        <div className="w-24 h-24 mb-10 bg-primary/10 border-2 border-primary/20 rounded-full flex items-center justify-center mx-auto animate-in">
+            <Trophy className="w-12 h-12 text-primary" />
+        </div>
         <h1 className="font-heading text-5xl md:text-7xl font-bold text-primary mb-4 leading-tight animate-in">You're In!</h1>
         <p className="font-heading text-2xl md:text-3xl font-bold mb-6 animate-in">Your Spot Has Been Reserved</p>
         <p className="font-body text-lg md:text-xl text-muted mb-16 animate-in">Check your email for confirmation details.</p>
@@ -56,14 +58,12 @@ export default function ThankYou() {
                         <div className="flex-1">
                             <h3 className="font-heading text-xl md:text-2xl font-bold mb-4">Step 1: Add to Your Calendar</h3>
                             <p className="text-secondary font-body mb-6">Most people who miss trainings simply forget to set a reminder. Don't let that be you.</p>
-                            <a 
-                                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tunde+Ajayi+Webinar:+How+I+Made+My+First+$1,000+Online&details=Join+Tunde+Ajayi+for+a+free+live+training.&location=Online" 
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-warning text-background rounded-full px-8 py-4 font-body font-bold text-center block md:inline-block transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,184,0,0.2)]"
+                            <button 
+                                onClick={() => window.open("https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tunde+Ajayi+Webinar:+How+I+Made+My+First+$1,000+Online&details=Join+Tunde+Ajayi+for+a+free+live+training.&location=Online", "_blank")}
+                                className="bg-warning text-background rounded-full px-8 py-4 font-body font-bold text-center block md:inline-block transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,184,0,0.2)] flex items-center justify-center gap-2"
                             >
-                                📅 Add to My Calendar
-                            </a>
+                                <Calendar className="w-5 h-5" /> Add to My Calendar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,9 @@ export default function ThankYou() {
                                 href="https://chat.whatsapp.com/demo-vibe-code" 
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-primary text-background rounded-full px-8 py-4 font-body font-bold text-center block md:inline-block transition-all hover:scale-105 active:scale-95 shadow-neon"
+                                className="bg-primary text-background rounded-full px-8 py-4 font-body font-bold text-center block md:inline-block transition-all hover:scale-105 active:scale-95 shadow-neon flex items-center justify-center gap-2"
                             >
-                                📱 Join WhatsApp Group <ArrowRight className="inline-block ml-2 w-5 h-5" />
+                                <Smartphone className="w-5 h-5" /> Join WhatsApp Group <ArrowRight className="inline-block ml-2 w-5 h-5" />
                             </a>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ export default function ThankYou() {
                   "Ready for clarity"
               ].map((point, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-secondary font-body font-medium bg-surface/50 p-4 rounded-2xl border border-white/5">
-                      <span className="text-primary text-xl">👉</span>
+                      <Zap className="text-primary w-4 h-4" />
                       <span>{point}</span>
                   </div>
               ))}
