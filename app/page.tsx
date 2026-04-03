@@ -163,11 +163,11 @@ export default function Home() {
             <ClientCountdown />
         </div>
 
-        <div className="hero-animate w-full max-w-md mx-auto mb-16">
-            <a href="#register" className="group bg-primary text-background rounded-full px-12 py-6 font-heading text-xl md:text-2xl font-black flex items-center justify-center gap-3 transition-all hover:bg-primary-hover hover:scale-[1.02] active:scale-95 shadow-neon-strong">
-                Reserve My Free Spot <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+        <div className="hero-animate w-full max-w-md mx-auto mb-12 md:mb-16">
+            <a href="#register" className="group bg-primary text-background rounded-full px-8 py-4 md:px-12 md:py-6 font-heading text-lg md:text-2xl font-black flex items-center justify-center gap-3 transition-all hover:bg-primary-hover hover:scale-[1.02] active:scale-95 shadow-neon-strong">
+                Reserve My Free Spot <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
             </a>
-            <p className="text-muted font-body text-[13px] mt-6 flex items-center justify-center gap-2 font-medium opacity-80">
+            <p className="text-muted font-body text-[12px] mt-6 flex items-center justify-center gap-2 font-medium opacity-80">
                 <Zap className="w-3.5 h-3.5 text-primary" /> Only 12 seats remaining for this session
             </p>
         </div>
@@ -187,13 +187,13 @@ export default function Home() {
       </section>
 
       {/* SECTION 3: PAIN */}
-      <section className="section-animate bg-surface py-32 px-6 border-y border-white/5">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section className="section-animate bg-surface py-20 md:py-32 px-6 border-y border-white/5">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="reveal order-2 lg:order-1">
                 <span className="text-primary font-body text-[12px] font-bold uppercase tracking-[0.3em] mb-6 block">
                     SOUND FAMILIAR?
                 </span>
-                <h2 className="font-heading text-4xl md:text-6xl font-bold mb-16">Does this sound like you?</h2>
+                <h2 className="font-heading text-4xl md:text-6xl font-bold mb-10 md:mb-16">Does this sound like you?</h2>
                 
                 <div className="space-y-4">
                     { [
@@ -201,7 +201,7 @@ export default function Home() {
                         "Feeling overwhelmed by the technical 'mumbo-jumbo'",
                         "Trying everything but nothing seems to stick"
                     ].map((pain, idx) => (
-                        <div key={idx} className="glass border border-white/5 rounded-2xl p-8 text-left flex items-start gap-5 transition-all hover:border-danger/30 hover:bg-danger/[0.01] hover:neon-glow-danger group">
+                        <div key={idx} className="glass border border-white/5 rounded-2xl p-6 md:p-8 text-left flex items-start gap-4 md:gap-5 transition-all hover:border-danger/30 hover:bg-danger/[0.01] hover:neon-glow-danger group">
                             <div className="w-10 h-10 rounded-full bg-danger/10 border border-danger/20 flex items-center justify-center shrink-0">
                                 <span className="text-danger font-bold">✕</span>
                             </div>
@@ -210,7 +210,7 @@ export default function Home() {
                     ))}
                 </div>
 
-                <div className="mt-20 space-y-6">
+                <div className="mt-12 md:mt-20 space-y-6">
                     <p className="font-heading text-2xl md:text-4xl font-bold opacity-60">
                         It's not your fault.
                     </p>
@@ -237,12 +237,12 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: PROMISE - THE BENTO DISCOVERY */}
-      <section className="section-animate py-40 px-6 max-w-7xl mx-auto relative parallax-container">
+      <section className="section-animate py-20 md:py-40 px-6 max-w-7xl mx-auto relative parallax-container">
 
         {/* Background Visual Ornament */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full filter blur-[150px] -z-10 pointer-events-none" />
         
-        <div className="text-center mb-32">
+        <div className="text-center mb-16 md:mb-32">
           <span className="reveal text-primary font-body text-[12px] font-bold uppercase tracking-[0.4em] mb-6 block">
             THE NEW SYSTEM
           </span>
@@ -257,7 +257,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch auto-rows-fr">
           
           {/* 1. FEATURED: The 15-Minute Blueprint (Spans 8 cols) */}
-          <div className="reveal lg:col-span-8 glass-card rounded-[3.5rem] p-10 md:p-16 flex flex-col md:flex-row gap-12 md:gap-20 items-center group transition-all hover:bg-white/[0.01] hover:border-primary/30 relative overflow-hidden min-h-[500px]">
+          <div className="reveal lg:col-span-8 glass-card rounded-[3.5rem] p-6 md:p-16 flex flex-col md:flex-row gap-10 md:gap-20 items-center group transition-all hover:bg-white/[0.01] hover:border-primary/30 relative overflow-hidden min-h-[500px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full group-hover:bg-primary/20 transition-all" />
               <div className="flex-1 space-y-6">
                   <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center shadow-lg">
@@ -358,7 +358,7 @@ export default function Home() {
           </div>
 
           {/* 2. THE ROADMAP WIDGET (Spans 4 cols, spans depth on large) */}
-          <div className="reveal lg:col-span-4 lg:row-span-2 glass-card rounded-[3rem] p-10 md:p-14 bg-primary/[0.03] border-primary/20 relative overflow-hidden flex flex-col items-center lg:items-start group transition-all hover:border-primary/40 min-h-[600px]">
+          <div className="reveal lg:col-span-4 lg:row-span-2 glass-card rounded-[3rem] p-6 md:p-14 bg-primary/[0.03] border-primary/20 relative overflow-hidden flex flex-col items-center lg:items-start group transition-all hover:border-primary/40 min-h-[600px]">
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-[80px] rounded-full group-hover:bg-primary/20 transition-all" />
               <div className="flex items-center gap-4 mb-12">
                   <Calendar className="text-primary w-8 h-8" />
@@ -409,7 +409,7 @@ export default function Home() {
           </div>
 
           {/* 3. SUB-CARD 1: The AI Arsenal (Spans 4 cols) */}
-          <div className="reveal lg:col-span-4 glass-card rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col gap-8 md:gap-10 transition-all hover:border-primary/50 hover:bg-primary/[0.02] hover:neon-glow group relative z-10">
+          <div className="reveal lg:col-span-4 glass-card rounded-[2.5rem] md:rounded-[3rem] p-6 md:p-12 flex flex-col gap-6 md:gap-10 transition-all hover:border-primary/50 hover:bg-primary/[0.02] hover:neon-glow group relative z-10">
               <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shadow-lg">
                   <Zap className="text-primary w-7 h-7 md:w-8 md:h-8" />
               </div>
@@ -427,7 +427,7 @@ export default function Home() {
           </div>
 
           {/* 4. SUB-CARD 2: The Scaling Loop (Spans 4 cols) */}
-          <div className="reveal lg:col-span-4 glass-card rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col gap-8 md:gap-10 transition-all hover:border-primary/50 hover:bg-primary/[0.02] hover:neon-glow group relative z-10">
+          <div className="reveal lg:col-span-4 glass-card rounded-[2.5rem] md:rounded-[3rem] p-6 md:p-12 flex flex-col gap-6 md:gap-10 transition-all hover:border-primary/50 hover:bg-primary/[0.02] hover:neon-glow group relative z-10">
               <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shadow-lg">
                   <Trophy className="text-primary w-7 h-7 md:w-8 md:h-8" />
               </div>
@@ -447,10 +447,10 @@ export default function Home() {
         </div>
 
         {/* BOTTOM CTA: Re-using the premium button style */}
-        <div className="reveal mt-32 text-center">
-            <a href="#register" className="group relative inline-flex items-center gap-4 bg-white text-background rounded-full px-16 py-7 font-heading text-2xl font-black transition-all hover:bg-primary-hover hover:scale-105 shadow-xl hover:shadow-neon-glow overflow-hidden">
+        <div className="reveal mt-16 md:mt-32 text-center">
+            <a href="#register" className="group relative inline-flex items-center gap-4 bg-white text-background rounded-full px-8 py-4 md:px-16 md:py-7 font-heading text-lg md:text-2xl font-black transition-all hover:bg-primary-hover hover:scale-105 shadow-xl hover:shadow-neon-glow overflow-hidden">
                 <span className="relative z-10">Access The Secrets Now</span>
-                <ArrowRight className="w-7 h-7 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
+                <ArrowRight className="w-6 h-6 md:w-7 md:h-7 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
             </a>
             <p className="text-muted font-body text-[12px] mt-8 flex items-center justify-center gap-2 font-medium opacity-50 uppercase tracking-[0.2em]">
                 <Shield className="w-4 h-4 text-primary" /> Verified Beginner Friendly Strategy
@@ -460,8 +460,8 @@ export default function Home() {
 
 
       {/* SECTION 5: AUTHORITY */}
-      <section className="section-animate bg-surface py-32 px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section className="section-animate bg-surface py-20 md:py-32 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="reveal relative group parallax-container">
                 <div className="aspect-[4/5] relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
                     <Image 
@@ -497,7 +497,7 @@ export default function Home() {
                         { icon: Star, label: "500+ Students Mentored" },
                         { icon: CheckCircle2, label: "Top-Rated Webinar" }
                     ].map((badge, idx) => (
-                        <div key={idx} className="glass rounded-2xl px-6 py-4 font-body text-sm font-bold text-secondary flex items-center gap-3">
+                        <div key={idx} className="glass rounded-2xl px-4 py-3 md:px-6 md:py-4 font-body text-xs md:text-sm font-bold text-secondary flex items-center gap-3">
                             <badge.icon className="w-4 h-4 text-primary" />
                             {badge.label}
                         </div>
@@ -508,7 +508,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 6: SOCIAL PROOF */}
-      <section className="section-animate py-24 px-6 border-y border-white/5 bg-[#050505]">
+      <section className="section-animate py-16 md:py-24 px-6 border-y border-white/5 bg-[#050505]">
         <div className="max-w-7xl mx-auto">
             <span className="reveal text-primary font-body text-[12px] font-bold uppercase tracking-[0.3em] mb-6 block text-center">
                 STUDENT SUCCESS
@@ -521,12 +521,12 @@ export default function Home() {
       </section>
 
       {/* SECTION 7: BONUS */}
-      <section className="section-animate bg-surface py-32 px-6">
+      <section className="section-animate bg-surface py-20 md:py-32 px-6">
         <div className="max-w-5xl mx-auto">
-            <div className="glass-card rounded-[4rem] p-12 md:p-24 overflow-hidden relative">
+            <div className="glass-card rounded-[3rem] md:rounded-[4rem] p-8 md:p-24 overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full -mr-64 -mt-64 blur-[120px]" />
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
                     <div className="reveal">
                         <span className="text-warning font-body text-[12px] font-black uppercase tracking-[0.4em] mb-6 block">
                             ATTENDANCE BONUS
@@ -556,7 +556,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 8: URGENCY */}
-      <section className="section-animate py-32 px-6">
+      <section className="section-animate py-20 md:py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
             <div className="reveal bg-danger/10 border border-danger/30 rounded-full px-8 py-3 mb-10 inline-flex items-center gap-3 mx-auto">
                 <AlertTriangle className="text-danger w-5 h-5" />
@@ -570,7 +570,7 @@ export default function Home() {
                 <span className="text-danger">Not a Replay.</span>
             </h2>
 
-            <div className="reveal space-y-6 mb-20 max-w-2xl mx-auto relative">
+            <div className="reveal space-y-6 mb-12 md:mb-20 max-w-2xl mx-auto relative">
                 {/* Visual Ornament: Pulse Circle */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
                     <div className="w-80 h-80 rounded-full border border-primary/20 animate-ping opacity-20" />
@@ -597,7 +597,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 9: REGISTRATION FORM */}
-      <section id="register" className="section-animate bg-surface py-32 px-6 border-t border-white/5">
+      <section id="register" className="section-animate bg-surface py-20 md:py-32 px-6 border-t border-white/5">
         <div className="max-w-2xl mx-auto text-center">
             <span className="reveal text-primary font-body text-[12px] font-bold uppercase tracking-[0.4em] mb-6 block">
                 LAST STEP
@@ -607,7 +607,7 @@ export default function Home() {
                 Registration closes automatically when the <br className="hidden md:block" /> session is full. Don't wait.
             </p>
 
-            <div className="reveal glass-card rounded-[3rem] p-10 md:p-16 text-left relative group neon-glow">
+            <div className="reveal glass-card rounded-[3rem] p-6 md:p-16 text-left relative group neon-glow">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-[100px] pointer-events-none" />
                 
                 <form action={formAction} className="space-y-8 relative z-10">
@@ -619,7 +619,7 @@ export default function Home() {
                                 type="text" 
                                 required
                                 placeholder="Full Name" 
-                                className={`w-full bg-surface border ${state?.error?.name ? 'border-danger/50 bg-danger/[0.02]' : 'border-white/5'} rounded-[1.5rem] px-8 py-5 font-body text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20`}
+                                className={`w-full bg-surface border ${state?.error?.name ? 'border-danger/50 bg-danger/[0.02]' : 'border-white/5'} rounded-[1.5rem] px-6 py-4 md:px-8 md:py-5 font-body text-base md:text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20`}
                             />
                             {state?.error?.name && (
                                 <div className="absolute right-6 top-1/2 -translate-y-1/2 text-danger animate-pulse">
@@ -637,7 +637,7 @@ export default function Home() {
                                 type="email" 
                                 required
                                 placeholder="Email Address" 
-                                className={`w-full bg-surface border ${state?.error?.email ? 'border-danger/50 bg-danger/[0.02]' : 'border-white/5'} rounded-[1.5rem] px-8 py-5 font-body text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20`}
+                                className={`w-full bg-surface border ${state?.error?.email ? 'border-danger/50 bg-danger/[0.02]' : 'border-white/5'} rounded-[1.5rem] px-6 py-4 md:px-8 md:py-5 font-body text-base md:text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20`}
                             />
                             {state?.error?.email && (
                                 <div className="absolute right-6 top-1/2 -translate-y-1/2 text-danger animate-pulse">
@@ -648,7 +648,7 @@ export default function Home() {
                         {state?.error?.email && <p className="text-danger text-[12px] font-bold ml-4 flex items-center gap-2 animate-in fade-in slide-in-from-top-1 px-1"> <AlertCircle className="w-3 h-3" /> {state.error.email[0]}</p>}
                     </div>
 
-                    <SubmitButton className="w-full bg-primary text-background rounded-full py-6 font-heading text-2xl font-black transition-all hover:bg-primary-hover hover:scale-[1.01] shadow-neon-strong active:scale-95 flex items-center justify-center gap-3 mt-10 group">
+                    <SubmitButton className="w-full bg-primary text-background rounded-full py-4 md:py-6 font-heading text-lg md:text-2xl font-black transition-all hover:bg-primary-hover hover:scale-[1.01] shadow-neon-strong active:scale-95 flex items-center justify-center gap-3 mt-10 group">
                         YES, RESERVE MY SPOT <Rocket className="w-6 h-6 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                     </SubmitButton>
                     
@@ -668,18 +668,18 @@ export default function Home() {
       </section>
 
       {/* SECTION 10: FINAL CTA */}
-      <section className="section-animate py-40 px-6 overflow-hidden bg-background">
+      <section className="section-animate py-24 md:py-40 px-6 overflow-hidden bg-background">
         <div className="max-w-4xl mx-auto text-center">
             <h3 className="reveal font-heading text-3xl md:text-5xl font-bold mb-20 text-muted">A split-second decision…</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch mb-24 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch mb-16 md:mb-24 relative">
                 <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                     <div className="w-16 h-16 bg-primary/20 backdrop-blur-xl border border-primary/40 rounded-full flex items-center justify-center animate-pulse">
                         <ArrowRight className="w-8 h-8 text-primary" />
                     </div>
                 </div>
 
-                <div className="reveal glass-card rounded-[3rem] p-12 flex flex-col items-center gap-6 border-danger/20">
+                <div className="reveal glass-card rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col items-center gap-6 border-danger/20">
                     <div className="w-16 h-16 rounded-full bg-danger/10 flex items-center justify-center">
                         <AlertCircle className="w-8 h-8 text-danger" />
                     </div>
@@ -689,7 +689,7 @@ export default function Home() {
                     </p>
                 </div>
 
-                <div className="reveal bg-surface border-2 border-primary/50 shadow-neon rounded-[3rem] p-12 flex flex-col items-center gap-6 scale-105 md:scale-110 z-20">
+                <div className="reveal bg-surface border-2 border-primary/50 shadow-neon rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col items-center gap-6 scale-100 md:scale-110 z-20">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                         <Zap className="w-8 h-8 text-primary" />
                     </div>
@@ -703,7 +703,7 @@ export default function Home() {
             <div className="reveal relative">
                 {/* Floating Ornament 3D effect */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 blur-[100px] -z-10 animate-pulse" />
-                <a href="#register" className="bg-primary text-background rounded-full px-16 py-7 font-heading text-2xl font-black block max-w-lg mx-auto transition-all hover:bg-primary-hover hover:scale-105 shadow-neon-strong relative z-10">
+                <a href="#register" className="bg-primary text-background rounded-full px-8 py-4 md:px-16 md:py-7 font-heading text-lg md:text-2xl font-black block max-w-lg mx-auto transition-all hover:bg-primary-hover hover:scale-105 shadow-neon-strong relative z-10">
                     Reserve My Free Spot Now
                 </a>
             </div>
