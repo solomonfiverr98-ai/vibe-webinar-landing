@@ -15,13 +15,14 @@ export function SubmitButton({ children, className }: SubmitButtonProps) {
     <button
       type="submit"
       disabled={pending}
-      className={`${className} disabled:opacity-70 disabled:cursor-not-allowed`}
+      className={`${className} relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed group transition-all`}
     >
       {pending ? (
-        <>
-          <Loader2 className="w-6 h-6 animate-spin" />
-          <span>Processing...</span>
-        </>
+        <div className="flex items-center justify-center gap-3 animate-pulse">
+          <Loader2 className="w-6 h-6 animate-spin text-background" />
+          <span className="uppercase tracking-[0.1em]">Securing Spot...</span>
+          <div className="absolute inset-0 bg-white/20 animate-pulse-slow" />
+        </div>
       ) : (
         children
       )}

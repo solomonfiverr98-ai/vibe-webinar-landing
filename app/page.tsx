@@ -39,27 +39,37 @@ export default function Home() {
         delay: 0.5
       });
 
-      // Parallax Effects
-      gsap.to(".parallax-img", {
-        scrollTrigger: {
-          trigger: ".parallax-container",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-        y: -100,
-        ease: "none",
-      });
+      // Multiple Parallax Containers handling
+      const containers = gsap.utils.toArray(".parallax-container");
+      containers.forEach((container: any) => {
+        const imgs = container.querySelectorAll(".parallax-img");
+        const widgets = container.querySelectorAll(".parallax-widget");
 
-      gsap.to(".parallax-widget", {
-        scrollTrigger: {
-          trigger: ".parallax-container",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-        y: -150,
-        ease: "none",
+        if (imgs.length > 0) {
+          gsap.to(imgs, {
+            scrollTrigger: {
+              trigger: container,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+            y: -100,
+            ease: "none",
+          });
+        }
+
+        if (widgets.length > 0) {
+          gsap.to(widgets, {
+            scrollTrigger: {
+              trigger: container,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.5,
+            },
+            y: -150,
+            ease: "none",
+          });
+        }
       });
 
       // Simple parallax for bonus image
@@ -77,19 +87,23 @@ export default function Home() {
       // Section Entrance Animations
       const animateSections = gsap.utils.toArray(".section-animate");
       animateSections.forEach((section: any) => {
-        gsap.from(section.querySelectorAll(".reveal"), {
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-          y: 40,
-          opacity: 0,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: "power4.out",
-        });
+        const reveals = section.querySelectorAll(".reveal");
+        if (reveals.length > 0) {
+          gsap.from(reveals, {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.out",
+          });
+        }
       });
+
     }, mainRef);
 
     return () => ctx.revert();
@@ -120,7 +134,7 @@ export default function Home() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-20 animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-20" />
 
-        <div className="hero-animate opacity-1 bg-red-500/10 border border-red-500/30 rounded-full px-6 py-2 mb-10 inline-flex items-center gap-3">
+        <div className="hero-animate bg-red-500/10 border border-red-500/30 rounded-full px-6 py-2 mb-10 inline-flex items-center gap-3">
             <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
@@ -219,7 +233,8 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: PROMISE - THE BENTO DISCOVERY */}
-      <section className="section-animate py-40 px-6 max-w-7xl mx-auto relative">
+      <section className="section-animate py-40 px-6 max-w-7xl mx-auto relative parallax-container">
+
         {/* Background Visual Ornament */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full filter blur-[150px] -z-10 pointer-events-none" />
         
@@ -235,127 +250,122 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Main Content Area (Bento Grid) */}
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
-            {/* LARGE CARD: The Blueprint */}
-            <div className="reveal md:col-span-2 glass-card rounded-[3rem] p-12 flex flex-col md:flex-row gap-12 items-center group transition-all hover:border-primary/40 hover:neon-glow relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full group-hover:bg-primary/20 transition-all" />
-                <div className="flex-1 space-y-6">
-                    <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center shadow-lg">
-                        <Rocket className="text-primary w-7 h-7" />
-                    </div>
-                    <h3 className="font-heading text-3xl md:text-4xl font-bold group-hover:text-primary transition-colors">The 15-Minute Blueprint</h3>
-                    <p className="text-muted font-body text-lg leading-relaxed max-w-md">
-                        Setting up your income engine shouldn't take weeks. I'll show you how to go from <span className="text-white font-bold">zero to launched</span> in less time than a coffee break.
-                    </p>
-                    <div className="flex items-center gap-4 pt-4">
-                        <span className="px-5 py-2 rounded-full border border-white/5 bg-white/5 text-[11px] font-black uppercase tracking-widest text-primary">High Impact</span>
-                        <span className="px-5 py-2 rounded-full border border-white/5 bg-white/5 text-[11px] font-black uppercase tracking-widest text-white/40">Zero Code</span>
-                    </div>
-                </div>
-                <div className="w-full md:w-64 aspect-square relative rounded-[2rem] overflow-hidden border border-white/5 group-hover:border-primary/20 transition-all p-2 bg-gradient-to-br from-white/5 to-transparent">
-                    <Image 
-                        src="/promise-system-blueprint.png" 
-                        alt="System Blueprint"
-                        fill
-                        className="object-cover rounded-[1.5rem] grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
-                    />
-                </div>
-            </div>
-
-            {/* MEDIUM CARD: The Arsenal */}
-            <div className="reveal glass-card rounded-[2.5rem] p-10 flex flex-col gap-8 transition-all hover:border-primary/50 hover:bg-primary/[0.01] hover:neon-glow group h-full">
-                <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center">
-                    <Zap className="text-primary w-7 h-7" />
-                </div>
-                <div className="space-y-4 flex-1">
-                    <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors">The No-Code Toolkit</h3>
-                    <p className="text-muted font-body text-lg leading-relaxed">
-                        The exact 3 AI tools that handle 90% of your daily operations—allowing you to focus strictly on profit, not tech.
-                    </p>
-                </div>
-                <div className="pt-6 border-t border-white/5">
-                    <span className="text-primary text-[12px] font-black uppercase tracking-widest flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4" /> 100% Mobile Ready
-                    </span>
-                </div>
-            </div>
-
-            {/* MEDIUM CARD: The Scaling Loop */}
-            <div className="reveal glass-card rounded-[2.5rem] p-10 flex flex-col gap-8 transition-all hover:border-primary/50 hover:bg-primary/[0.01] hover:neon-glow group h-full">
-                <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center">
-                    <Trophy className="text-primary w-7 h-7" />
-                </div>
-                <div className="space-y-4 flex-1">
-                    <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors">The Momentum Loop</h3>
-                    <p className="text-muted font-body text-lg leading-relaxed">
-                        Learn the repeatable strategy to turn your first $100 win into a consistent, scaling weekly income stream.
-                    </p>
-                </div>
-                <div className="pt-6 border-t border-white/5">
-                    <span className="text-primary text-[12px] font-black uppercase tracking-widest flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4" /> Proven 2026 Strategy
-                    </span>
-                </div>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch auto-rows-fr">
+          
+          {/* 1. FEATURED: The 15-Minute Blueprint (Spans 8 cols) */}
+          <div className="reveal lg:col-span-8 glass-card rounded-[3.5rem] p-10 md:p-16 flex flex-col md:flex-row gap-12 md:gap-20 items-center group transition-all hover:bg-white/[0.01] hover:border-primary/30 relative overflow-hidden min-h-[500px]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full group-hover:bg-primary/20 transition-all" />
+              <div className="flex-1 space-y-6">
+                  <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center shadow-lg">
+                      <Rocket className="text-primary w-7 h-7" />
+                  </div>
+                  <h3 className="font-heading text-3xl md:text-5xl font-bold group-hover:text-primary transition-colors tracking-tight">The 15-Minute <br /> <span className="text-secondary">Blueprint</span></h3>
+                  <p className="text-muted font-body text-xl leading-relaxed max-w-lg">
+                      Setting up your income engine shouldn't take weeks. I'll show you how to go from <span className="text-white font-bold">zero to launched</span> in less time than a coffee break.
+                  </p>
+                  <div className="flex items-center gap-4 pt-6">
+                      <span className="px-6 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-black uppercase tracking-widest text-primary shadow-neon-small">High Impact</span>
+                      <span className="px-6 py-2.5 rounded-full border border-white/5 bg-white/5 text-[12px] font-black uppercase tracking-widest text-white/40">Zero Code</span>
+                  </div>
+              </div>
+              <div className="w-full md:w-80 aspect-square relative rounded-[2rem] overflow-hidden border border-white/5 group-hover:border-primary/20 transition-all p-2 bg-gradient-to-br from-white/5 to-transparent parallax-widget">
+                  <Image 
+                      src="/promise-system-blueprint.png" 
+                      alt="System Blueprint"
+                      fill
+                      className="object-cover rounded-[1.5rem] grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
+                      sizes="(max-width: 768px) 100vw, 320px"
+                  />
+              </div>
           </div>
 
-          {/* Sidebar Area (Roadmap & Status) */}
-          <div className="lg:col-span-4 h-full flex flex-col gap-8">
-            {/* THE ROADMAP WIDGET */}
-            <div className="reveal glass-card rounded-[2.5rem] p-10 bg-primary/[0.02] border-primary/20 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 blur-[40px] rounded-full" />
-                <div className="flex items-center gap-3 mb-10">
-                    <Calendar className="text-primary w-6 h-6" />
-                    <h4 className="font-heading text-xl font-bold tracking-tight">Webinar Roadmap</h4>
-                </div>
-                
-                <div className="space-y-8 relative flex-1">
-                    {/* Vertical Line */}
-                    <div className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-primary/20 to-transparent" />
-                    
-                    {[
-                        { time: "00m", title: "Success Stories & Proof", detail: "Real results from real people." },
-                        { time: "15m", title: "The Income Logic", detail: "Why this works for beginners." },
-                        { time: "35m", title: "System Setup Live", detail: "We build it in 15 mins." },
-                        { time: "60m", title: "The $1k Traffic Secret", detail: "10k free visitors logic." },
-                        { time: "90m", title: "Scaling & Bonuses", detail: "Your gift reveal." }
-                    ].map((step, i) => (
-                        <div key={i} className="relative pl-10 group/item">
-                            <div className="absolute left-[7px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-neon ring-4 ring-primary/20 transition-transform group-hover/item:scale-125" />
-                            <span className="text-primary font-body text-[10px] font-black uppercase tracking-widest block mb-1 opacity-60 group-hover/item:opacity-100 transition-opacity">
-                                {step.time}
-                            </span>
-                            <h5 className="font-heading text-[16px] font-bold text-white mb-1 group-hover/item:text-primary transition-colors">
-                                {step.title}
-                            </h5>
-                            <p className="text-muted font-body text-[13px] leading-relaxed line-clamp-1">
-                                {step.detail}
-                            </p>
-                        </div>
-                    ))}
-                </div>
+          {/* 2. THE ROADMAP WIDGET (Spans 4 cols, spans depth on large) */}
+          <div className="reveal lg:col-span-4 lg:row-span-2 glass-card rounded-[3rem] p-10 md:p-14 bg-primary/[0.03] border-primary/20 relative overflow-hidden flex flex-col items-center lg:items-start group transition-all hover:border-primary/40 min-h-[600px]">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-[80px] rounded-full group-hover:bg-primary/20 transition-all" />
+              <div className="flex items-center gap-4 mb-12">
+                  <Calendar className="text-primary w-8 h-8" />
+                  <h4 className="font-heading text-2xl font-bold tracking-tight">Webinar Roadmap</h4>
+              </div>
 
-                <div className="mt-12 bg-white/5 border border-white/5 rounded-2xl p-6">
-                    <p className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-                        <Smartphone className="w-4 h-4" /> Live System Active
-                    </p>
-                    <div className="flex items-end justify-between">
-                        <div>
-                            <p className="font-heading text-2xl font-black text-white">$1,240.22</p>
-                            <p className="text-[9px] text-muted font-medium uppercase tracking-widest mt-1">Verified Revenue Today</p>
-                        </div>
-                        <div className="h-10 w-24 bg-primary/5 rounded-lg border border-primary/10 flex items-center justify-center overflow-hidden">
-                             {/* Simple SVG Wave Graph */}
-                             <svg viewBox="0 0 100 40" className="w-full h-full stroke-primary fill-none opacity-50">
-                                <path d="M0,30 Q10,10 20,25 T40,15 T60,28 T80,10 T100,20" strokeWidth="2" strokeLinecap="round" />
-                             </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div className="space-y-8 relative flex-1 w-full">
+                  <div className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-primary/20 to-transparent" />
+                  
+                  {[
+                      { time: "00m", title: "Success Stories & Proof", detail: "Real results from real people." },
+                      { time: "15m", title: "The Income Logic", detail: "Why this works for beginners." },
+                      { time: "35m", title: "System Setup Live", detail: "We build it in 15 mins." },
+                      { time: "60m", title: "The $1k Traffic Secret", detail: "10k free visitors logic." },
+                      { time: "90m", title: "Scaling & Bonuses", detail: "Your gift reveal." }
+                  ].map((step, i) => (
+                      <div key={i} className="relative pl-10 group/item">
+                          <div className="absolute left-[7px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-neon ring-4 ring-primary/20 transition-transform group-hover/item:scale-125" />
+                          <span className="text-primary font-body text-[10px] font-black uppercase tracking-widest block mb-1 opacity-60 group-hover/item:opacity-100 transition-opacity">
+                              {step.time}
+                          </span>
+                          <h5 className="font-heading text-[16px] font-bold text-white mb-1 group-hover/item:text-primary transition-colors">
+                              {step.title}
+                          </h5>
+                          <p className="text-muted font-body text-[13px] leading-relaxed line-clamp-1">
+                              {step.detail}
+                          </p>
+                      </div>
+                  ))}
+              </div>
+
+              <div className="mt-12 bg-white/5 border border-white/5 rounded-2xl p-6 w-full">
+                  <p className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                      <Smartphone className="w-4 h-4" /> Live System Active
+                  </p>
+                  <div className="flex items-end justify-between">
+                      <div>
+                          <p className="font-heading text-2xl font-black text-white">$1,240.22</p>
+                          <p className="text-[9px] text-muted font-medium uppercase tracking-widest mt-1">Verified Revenue Today</p>
+                      </div>
+                      <div className="h-10 w-24 bg-primary/5 rounded-lg border border-primary/10 flex items-center justify-center overflow-hidden parallax-widget">
+                           <svg viewBox="0 0 100 40" className="w-full h-full stroke-primary fill-none opacity-50">
+                              <path d="M0,30 Q10,10 20,25 T40,15 T60,28 T80,10 T100,20" strokeWidth="2" strokeLinecap="round" />
+                           </svg>
+                      </div>
+                  </div>
+              </div>
           </div>
+
+          {/* 3. SUB-CARD 1: The AI Arsenal (Spans 4 cols) */}
+          <div className="reveal lg:col-span-4 glass-card rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col gap-8 md:gap-10 transition-all hover:border-primary/50 hover:bg-primary/[0.02] hover:neon-glow group relative z-10">
+              <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shadow-lg">
+                  <Zap className="text-primary w-7 h-7 md:w-8 md:h-8" />
+              </div>
+              <div className="space-y-4 md:space-y-6 flex-1">
+                  <h3 className="font-heading text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors">The No-Code Toolkit</h3>
+                  <p className="text-muted font-body text-lg md:text-xl leading-relaxed opacity-80">
+                      The exact 3 AI tools that handle 90% of your daily operations—allowing you to focus strictly on profit, not tech.
+                  </p>
+              </div>
+              <div className="pt-6 md:pt-8 border-t border-white/5">
+                  <span className="text-primary text-[12px] md:text-[13px] font-black uppercase tracking-widest flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 shadow-neon-small" /> 100% Mobile Ready
+                  </span>
+              </div>
+          </div>
+
+          {/* 4. SUB-CARD 2: The Scaling Loop (Spans 4 cols) */}
+          <div className="reveal lg:col-span-4 glass-card rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col gap-8 md:gap-10 transition-all hover:border-primary/50 hover:bg-primary/[0.02] hover:neon-glow group relative z-10">
+              <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 md:w-16 md:h-16 flex items-center justify-center shadow-lg">
+                  <Trophy className="text-primary w-7 h-7 md:w-8 md:h-8" />
+              </div>
+              <div className="space-y-4 md:space-y-6 flex-1">
+                  <h3 className="font-heading text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors">The Momentum Loop</h3>
+                  <p className="text-muted font-body text-lg md:text-xl leading-relaxed opacity-80">
+                      Learn the repeatable strategy to turn your first $100 win into a consistent, scaling weekly income stream.
+                  </p>
+              </div>
+              <div className="pt-6 md:pt-8 border-t border-white/5">
+                  <span className="text-primary text-[12px] md:text-[13px] font-black uppercase tracking-widest flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 shadow-neon-small" /> Proven 2026 Strategy
+                  </span>
+              </div>
+          </div>
+
         </div>
 
         {/* BOTTOM CTA: Re-using the premium button style */}
@@ -523,25 +533,39 @@ export default function Home() {
                 <form action={formAction} className="space-y-8 relative z-10">
                     <div className="space-y-3">
                         <label className="font-body text-[12px] font-bold text-muted uppercase tracking-[0.3em] ml-4">What's your name?</label>
-                        <input 
-                            name="name"
-                            type="text" 
-                            required
-                            placeholder="Full Name" 
-                            className="w-full bg-surface border border-white/5 rounded-[1.5rem] px-8 py-5 font-body text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20"
-                        />
-                        {state?.error?.name && <p className="text-danger text-[12px] font-bold ml-4">{state.error.name[0]}</p>}
+                        <div className="relative">
+                            <input 
+                                name="name"
+                                type="text" 
+                                required
+                                placeholder="Full Name" 
+                                className={`w-full bg-surface border ${state?.error?.name ? 'border-danger/50 bg-danger/[0.02]' : 'border-white/5'} rounded-[1.5rem] px-8 py-5 font-body text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20`}
+                            />
+                            {state?.error?.name && (
+                                <div className="absolute right-6 top-1/2 -translate-y-1/2 text-danger animate-pulse">
+                                    <AlertCircle className="w-5 h-5" />
+                                </div>
+                            )}
+                        </div>
+                        {state?.error?.name && <p className="text-danger text-[12px] font-bold ml-4 flex items-center gap-2 animate-in fade-in slide-in-from-top-1 px-1"> <AlertCircle className="w-3 h-3" /> {state.error.name[0]}</p>}
                     </div>
                     <div className="space-y-3">
                         <label className="font-body text-[12px] font-bold text-muted uppercase tracking-[0.3em] ml-4">Where should I send the link?</label>
-                        <input 
-                            name="email"
-                            type="email" 
-                            required
-                            placeholder="Email Address" 
-                            className="w-full bg-surface border border-white/5 rounded-[1.5rem] px-8 py-5 font-body text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20"
-                        />
-                        {state?.error?.email && <p className="text-danger text-[12px] font-bold ml-4">{state.error.email[0]}</p>}
+                        <div className="relative">
+                            <input 
+                                name="email"
+                                type="email" 
+                                required
+                                placeholder="Email Address" 
+                                className={`w-full bg-surface border ${state?.error?.email ? 'border-danger/50 bg-danger/[0.02]' : 'border-white/5'} rounded-[1.5rem] px-8 py-5 font-body text-lg text-white focus:outline-none focus:border-primary/50 focus:bg-primary/[0.02] transition-all placeholder:text-white/20`}
+                            />
+                            {state?.error?.email && (
+                                <div className="absolute right-6 top-1/2 -translate-y-1/2 text-danger animate-pulse">
+                                    <AlertCircle className="w-5 h-5" />
+                                </div>
+                            )}
+                        </div>
+                        {state?.error?.email && <p className="text-danger text-[12px] font-bold ml-4 flex items-center gap-2 animate-in fade-in slide-in-from-top-1 px-1"> <AlertCircle className="w-3 h-3" /> {state.error.email[0]}</p>}
                     </div>
 
                     <SubmitButton className="w-full bg-primary text-background rounded-full py-6 font-heading text-2xl font-black transition-all hover:bg-primary-hover hover:scale-[1.01] shadow-neon-strong active:scale-95 flex items-center justify-center gap-3 mt-10 group">
