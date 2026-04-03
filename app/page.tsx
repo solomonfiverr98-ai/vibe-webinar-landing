@@ -272,55 +272,87 @@ export default function Home() {
                       <span className="px-6 py-2.5 rounded-full border border-white/5 bg-white/5 text-[12px] font-black uppercase tracking-widest text-white/40">Zero Code</span>
                   </div>
               </div>
-              <div className="w-full md:w-80 aspect-[4/5] md:aspect-square relative rounded-[2rem] border border-white/5 group-hover:border-primary/20 transition-all p-6 bg-gradient-to-br from-primary/5 via-white/[0.02] to-transparent flex flex-col items-center justify-between">
-                  {/* Decorative Grid Background */}
-                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none rounded-[2rem]" />
+              <div className="w-full md:w-[400px] shrink-0 relative rounded-[2rem] border border-white/5 group-hover:border-primary/20 transition-all p-6 md:p-8 bg-[#030303] overflow-hidden flex flex-col min-h-[400px]">
+                  {/* Decorative Background */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
                   
-                  {/* Animated Overlay Glow */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/20 blur-[50px] rounded-full group-hover:bg-primary/30 transition-all duration-700" />
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 blur-[70px] rounded-full group-hover:bg-primary/40 transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-success/20 blur-[60px] rounded-full group-hover:bg-success/30 transition-all duration-700" />
                   
-                  {/* Node 1: Traffic source */}
-                  <div className="w-full bg-[#0a0a0a]/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 relative z-10 hover:border-primary/40 hover:bg-primary/[0.02] transition-colors group/node">
-                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover/node:scale-110 transition-transform">
-                          <Target className="w-5 h-5 text-secondary group-hover/node:text-primary transition-colors" />
-                      </div>
-                      <div>
-                          <p className="text-[9px] font-bold text-muted uppercase tracking-[0.2em] mb-1">Phase 1</p>
-                          <p className="font-heading text-[15px] font-bold text-white">Traffic Engine</p>
-                      </div>
-                  </div>
-
-                  {/* Connector 1 */}
-                  <div className="w-px h-10 bg-gradient-to-b from-white/20 via-primary/50 to-white/20 relative z-10 flex items-center justify-center">
-                       <div className="w-2 h-2 rounded-full bg-primary animate-ping opacity-50 absolute" />
-                       <div className="w-1.5 h-1.5 rounded-full bg-primary absolute shadow-neon-small" />
-                  </div>
-
-                  {/* Node 2: The Core System (Highlighted) */}
-                  <div className="w-full xl:scale-105 bg-primary/10 backdrop-blur-md border border-primary/30 shadow-neon-small rounded-2xl p-4 flex items-center gap-4 relative z-10">
-                      <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center shrink-0">
-                          <Rocket className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                          <p className="text-[9px] font-bold text-primary uppercase tracking-[0.2em] mb-1">Phase 2</p>
-                          <p className="font-heading text-[15px] font-bold text-white">15-Min Conversion</p>
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-8 relative z-10 bg-white/5 border border-white/5 rounded-full px-4 py-2 backdrop-blur-md">
+                      <h4 className="font-heading text-sm md:text-md font-bold text-white flex items-center gap-2">
+                          <Rocket className="w-4 h-4 text-primary" /> System Blueprint
+                      </h4>
+                      <div className="flex gap-2">
+                          <div className="w-2 h-2 rounded-full bg-danger/50" />
+                          <div className="w-2 h-2 rounded-full bg-warning/50" />
+                          <div className="w-2 h-2 rounded-full bg-success/50" />
                       </div>
                   </div>
 
-                  {/* Connector 2 */}
-                  <div className="w-px h-10 bg-gradient-to-b from-primary/50 via-success/50 to-success/20 relative z-10 flex items-center justify-center">
-                       <ArrowRight className="w-3.5 h-3.5 text-success absolute rotate-90 translate-y-2" />
-                  </div>
+                  {/* Flow Diagram */}
+                  <div className="flex flex-col gap-4 md:gap-5 relative z-10 flex-1 justify-center">
+                     {/* Step 1 */}
+                     <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 flex gap-4 items-center group/node hover:bg-white/[0.05] transition-all">
+                         <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                             <Target className="w-5 h-5 text-muted group-hover/node:text-white transition-colors" />
+                         </div>
+                         <div className="flex-1">
+                             <div className="flex justify-between items-center mb-2">
+                                 <span className="text-[10px] font-bold uppercase tracking-widest text-muted">Traffic Engine</span>
+                                 <span className="text-[10px] text-primary uppercase font-bold tracking-widest">Active</span>
+                             </div>
+                             <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                                 <div className="h-full w-[85%] bg-white/40 group-hover/node:bg-white/80 transition-all" />
+                             </div>
+                         </div>
+                     </div>
 
-                  {/* Node 3: Scale */}
-                  <div className="w-full bg-[#0a0a0a]/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 relative z-10 hover:border-success/40 hover:bg-success/[0.02] transition-colors group/node">
-                      <div className="w-10 h-10 rounded-full bg-success/10 border border-success/20 flex items-center justify-center shrink-0 group-hover/node:scale-110 transition-transform">
-                          <Trophy className="w-5 h-5 text-success shadow-neon-success" />
-                      </div>
-                      <div>
-                          <p className="text-[9px] font-bold text-success uppercase tracking-[0.2em] mb-1">Phase 3</p>
-                          <p className="font-heading text-[15px] font-bold text-white">Automated Scale</p>
-                      </div>
+                     {/* Connector */}
+                     <div className="w-px h-6 bg-gradient-to-b from-white/20 to-primary/50 ml-9 relative">
+                         <div className="absolute w-2 h-2 rounded-full bg-primary -left-[3.5px] top-1/2 -translate-y-1/2 shadow-neon-small animate-pulse" />
+                     </div>
+
+                     {/* Step 2 (Highlighted) */}
+                     <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 flex gap-4 items-center scale-[1.02] md:scale-105 shadow-neon-small">
+                         <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0">
+                             <Zap className="w-5 h-5 text-primary" />
+                         </div>
+                         <div className="flex-1">
+                             <div className="flex justify-between items-center mb-3">
+                                 <span className="text-[10px] font-bold uppercase tracking-widest text-primary">15-Minute Logic</span>
+                                 <span className="text-[8px] border border-primary/30 bg-primary/10 px-2 py-0.5 rounded-full text-primary uppercase tracking-widest animate-pulse">Running</span>
+                             </div>
+                             {/* Pseudo Code bars */}
+                             <div className="space-y-2">
+                                 <div className="h-1.5 w-[60%] bg-primary/40 rounded-full" />
+                                 <div className="h-1.5 w-[40%] bg-primary/20 rounded-full" />
+                                 <div className="h-1.5 w-[80%] bg-primary/30 rounded-full" />
+                             </div>
+                         </div>
+                     </div>
+
+                     {/* Connector */}
+                     <div className="w-px h-6 bg-gradient-to-b from-primary/50 to-success/50 ml-9 relative">
+                         <ArrowRight className="absolute w-4 h-4 text-success -left-[7px] top-1/2 -translate-y-1/2 rotate-90" />
+                     </div>
+
+                     {/* Step 3 */}
+                     <div className="bg-success/5 border border-success/20 rounded-xl p-4 flex gap-4 items-center group/node hover:bg-success/10 transition-all">
+                         <div className="w-10 h-10 rounded-lg bg-success/10 border border-success/30 flex items-center justify-center shrink-0">
+                             <Trophy className="w-5 h-5 text-success shadow-neon-success" />
+                         </div>
+                         <div className="flex-1">
+                             <div className="flex justify-between items-center mb-2">
+                                 <span className="text-[10px] font-bold uppercase tracking-widest text-success">Profit Scaler</span>
+                                 <span className="text-[12px] text-success font-heading font-black">$1,240</span>
+                             </div>
+                             <div className="h-1.5 w-full bg-success/10 rounded-full overflow-hidden">
+                                 <div className="h-full w-full bg-success" />
+                             </div>
+                         </div>
+                     </div>
                   </div>
               </div>
           </div>
