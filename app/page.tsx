@@ -89,18 +89,21 @@ export default function Home() {
       animateSections.forEach((section: any) => {
         const reveals = section.querySelectorAll(".reveal");
         if (reveals.length > 0) {
-          gsap.from(reveals, {
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-            y: 40,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power3.out",
-          });
+          gsap.fromTo(reveals, 
+            { y: 40, opacity: 0 },
+            {
+              scrollTrigger: {
+                trigger: section,
+                start: "top 85%",
+                toggleActions: "play none none none",
+              },
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              stagger: 0.1,
+              ease: "power3.out",
+            }
+          );
         }
       });
 
@@ -223,6 +226,7 @@ export default function Home() {
                         src="/pain-abstract.png" 
                         alt="Avoid generic traps"
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-110 parallax-img opacity-60 grayscale hover:grayscale-0 transition-all"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -432,6 +436,7 @@ export default function Home() {
                         src="/tunde.png" 
                         alt="Tunde Ajayi"
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
                     />
                 </div>
@@ -509,6 +514,7 @@ export default function Home() {
                             src="/bonus-checklist.png" 
                             alt="Bonus Roadmap"
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-contain transition-transform duration-500 group-hover:scale-110 parallax-bonus"
                         />
                     </div>

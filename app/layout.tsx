@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased dark">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} min-h-full flex flex-col bg-background text-foreground font-body`}>
+    <html lang="en" className="h-full antialiased dark" suppressHydrationWarning>
+      <body className={`${spaceGrotesk.variable} ${inter.variable} min-h-full flex flex-col bg-background text-foreground font-body`} suppressHydrationWarning>
         <AnimatedBackground />
         <LenisProvider>
           {children}
