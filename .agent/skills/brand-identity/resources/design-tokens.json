@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "project": "Webinar Registration Landing Page",
+    "host": "Tunde Ajayi",
+    "description": "High-converting webinar registration page — dark mode with neon green energy",
+    "design_direction": "Dark mode — deep black backgrounds, neon green CTAs, bold typography, urgency-driven"
+  },
+  "colors": {
+    "background": {
+      "DEFAULT": "#0A0A0A",
+      "surface": "#111111",
+      "surface2": "#1A1A1A",
+      "card": "#141414"
+    },
+    "primary": {
+      "DEFAULT": "#00FF88",
+      "hover": "#00E87A",
+      "foreground": "#0A0A0A"
+    },
+    "accent": {
+      "DEFAULT": "#00CC66",
+      "foreground": "#0A0A0A"
+    },
+    "warning": {
+      "DEFAULT": "#FFB800",
+      "foreground": "#0A0A0A"
+    },
+    "danger": {
+      "DEFAULT": "#FF4444",
+      "foreground": "#FFFFFF"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#CCCCCC",
+      "muted": "#666666",
+      "green": "#00FF88"
+    },
+    "border": {
+      "DEFAULT": "#222222",
+      "accent": "#00FF88",
+      "subtle": "#1A1A1A"
+    }
+  },
+  "typography": {
+    "font_family_headings": ["Space Grotesk", "sans-serif"],
+    "font_family_body": ["Inter", "sans-serif"],
+    "font_weight_bold": "700",
+    "font_weight_semibold": "600",
+    "font_weight_normal": "400"
+  },
+  "ui": {
+    "border_radius_default": "0.5rem",
+    "border_radius_large": "1rem",
+    "border_radius_full": "9999px",
+    "spacing_base_unit": "4px"
+  },
+  "design_language": {
+    "style": "Dark high-converting sales page — bold, urgent, energetic",
+    "mood": "Urgent, exciting, relatable, trustworthy, results-driven",
+    "avoid": "Soft colors, generic templates, weak headlines, corporate aesthetics, wellness or restaurant patterns"
+  }
+}
