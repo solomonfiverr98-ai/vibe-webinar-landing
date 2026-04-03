@@ -30,6 +30,15 @@ export default function Home() {
         delay: 0.2
       });
 
+      // Hero Backdrop Animation
+      gsap.from(".hero-backdrop", {
+        scale: 0.8,
+        opacity: 0,
+        duration: 2,
+        ease: "power4.out",
+        delay: 0.5
+      });
+
       // Parallax Effects
       gsap.to(".parallax-img", {
         scrollTrigger: {
@@ -39,6 +48,17 @@ export default function Home() {
           scrub: 1,
         },
         y: -100,
+        ease: "none",
+      });
+
+      gsap.to(".parallax-widget", {
+        scrollTrigger: {
+          trigger: ".parallax-container",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.5,
+        },
+        y: -150,
         ease: "none",
       });
 
@@ -92,7 +112,14 @@ export default function Home() {
       </nav>
 
       {/* SECTION 2: HERO */}
-      <section className="min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
+      <section className="relative min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center text-center max-w-7xl mx-auto overflow-visible">
+        {/* Floating Glass Backdrop */}
+        <div className="hero-backdrop absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-6xl h-[65%] glass-card rounded-[4rem] -z-10 border-white/5 opacity-40 shadow-2xl pointer-events-none" />
+        
+        {/* Cinematic Glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-20 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-20" />
+
         <div className="hero-animate opacity-1 bg-red-500/10 border border-red-500/30 rounded-full px-6 py-2 mb-10 inline-flex items-center gap-3">
             <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
@@ -105,7 +132,7 @@ export default function Home() {
         
         <h1 className="hero-animate font-heading text-5xl md:text-8xl font-bold leading-[1] tracking-tight mb-8">
             How I Made My First <br />
-            <span className="text-primary italic">$1,000 Online</span> <br />
+            <span className="text-primary italic text-glow">$1,000 Online</span> <br />
             Without Coding
         </h1>
 
@@ -219,6 +246,7 @@ export default function Home() {
             </div>
             
             <div className="reveal relative hidden lg:block group parallax-container">
+                {/* Main Abstract Image */}
                 <div className="aspect-[3/4] relative rounded-[3rem] overflow-hidden border border-white/10 shadow-massive">
                     <Image 
                         src="/promise-abstract.png" 
@@ -228,9 +256,43 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
+
+                {/* Floating Analytics Widget - ADDED TO FILL SPACE */}
+                <div className="parallax-widget absolute -top-12 -right-12 w-64 glass-card rounded-3xl p-6 shadow-massive border-primary/20 backdrop-blur-2xl z-20">
+                    <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                           <span className="text-[10px] font-bold text-primary uppercase tracking-widest">System Active</span>
+                        </div>
+                        <Zap className="w-3.5 h-3.5 text-primary" />
+                    </div>
+                    <div className="space-y-4">
+                        <div>
+                            <p className="text-muted text-[10px] uppercase font-bold tracking-wider mb-1">Total Verified Revenue</p>
+                            <p className="text-2xl font-heading font-black text-white">$1,240.22</p>
+                        </div>
+                        <div className="pt-3 border-t border-white/5 flex items-center justify-between">
+                            <div className="flex -space-x-2">
+                                {[1, 2, 3].map(i => (
+                                    <div key={i} className="w-6 h-6 rounded-full border border-background bg-surface-2 flex items-center justify-center text-[8px] font-bold">
+                                        {String.fromCharCode(64 + i)}
+                                    </div>
+                                ))}
+                            </div>
+                            <span className="text-[9px] font-medium text-muted">+14 today</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Floating "Next Session" Pill */}
+                <div className="parallax-widget absolute bottom-20 -left-12 bg-white text-background rounded-full px-6 py-3 shadow-xl z-20 flex items-center gap-3 scale-90 origin-right">
+                    <Clock className="w-4 h-4" />
+                    <span className="font-heading text-sm font-bold uppercase tracking-tight">Starts in 4h 12m</span>
+                </div>
+
                 {/* Floating Ornament Icon */}
-                <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-primary rounded-full flex items-center justify-center shadow-neon rotate-12 z-20">
-                    <Zap className="text-background w-10 h-10" />
+                <div className="absolute -bottom-6 right-6 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-neon rotate-12 z-20">
+                    <Zap className="text-background w-8 h-8" />
                 </div>
             </div>
         </div>
