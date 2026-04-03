@@ -268,14 +268,56 @@ export default function Home() {
                       <span className="px-6 py-2.5 rounded-full border border-white/5 bg-white/5 text-[12px] font-black uppercase tracking-widest text-white/40">Zero Code</span>
                   </div>
               </div>
-              <div className="w-full md:w-80 aspect-square relative rounded-[2rem] overflow-hidden border border-white/5 group-hover:border-primary/20 transition-all p-2 bg-gradient-to-br from-white/5 to-transparent parallax-widget">
-                  <Image 
-                      src="/promise-system-blueprint.png" 
-                      alt="System Blueprint"
-                      fill
-                      className="object-cover rounded-[1.5rem] grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
-                      sizes="(max-width: 768px) 100vw, 320px"
-                  />
+              <div className="w-full md:w-80 aspect-[4/5] md:aspect-square relative rounded-[2rem] border border-white/5 group-hover:border-primary/20 transition-all p-6 bg-gradient-to-br from-primary/5 via-white/[0.02] to-transparent flex flex-col items-center justify-between">
+                  {/* Decorative Grid Background */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none rounded-[2rem]" />
+                  
+                  {/* Animated Overlay Glow */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/20 blur-[50px] rounded-full group-hover:bg-primary/30 transition-all duration-700" />
+                  
+                  {/* Node 1: Traffic source */}
+                  <div className="w-full bg-[#0a0a0a]/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 relative z-10 hover:border-primary/40 hover:bg-primary/[0.02] transition-colors group/node">
+                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover/node:scale-110 transition-transform">
+                          <Target className="w-5 h-5 text-secondary group-hover/node:text-primary transition-colors" />
+                      </div>
+                      <div>
+                          <p className="text-[9px] font-bold text-muted uppercase tracking-[0.2em] mb-1">Phase 1</p>
+                          <p className="font-heading text-[15px] font-bold text-white">Traffic Engine</p>
+                      </div>
+                  </div>
+
+                  {/* Connector 1 */}
+                  <div className="w-px h-10 bg-gradient-to-b from-white/20 via-primary/50 to-white/20 relative z-10 flex items-center justify-center">
+                       <div className="w-2 h-2 rounded-full bg-primary animate-ping opacity-50 absolute" />
+                       <div className="w-1.5 h-1.5 rounded-full bg-primary absolute shadow-neon-small" />
+                  </div>
+
+                  {/* Node 2: The Core System (Highlighted) */}
+                  <div className="w-full xl:scale-105 bg-primary/10 backdrop-blur-md border border-primary/30 shadow-neon-small rounded-2xl p-4 flex items-center gap-4 relative z-10">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center shrink-0">
+                          <Rocket className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                          <p className="text-[9px] font-bold text-primary uppercase tracking-[0.2em] mb-1">Phase 2</p>
+                          <p className="font-heading text-[15px] font-bold text-white">15-Min Conversion</p>
+                      </div>
+                  </div>
+
+                  {/* Connector 2 */}
+                  <div className="w-px h-10 bg-gradient-to-b from-primary/50 via-success/50 to-success/20 relative z-10 flex items-center justify-center">
+                       <ArrowRight className="w-3.5 h-3.5 text-success absolute rotate-90 translate-y-2" />
+                  </div>
+
+                  {/* Node 3: Scale */}
+                  <div className="w-full bg-[#0a0a0a]/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 relative z-10 hover:border-success/40 hover:bg-success/[0.02] transition-colors group/node">
+                      <div className="w-10 h-10 rounded-full bg-success/10 border border-success/20 flex items-center justify-center shrink-0 group-hover/node:scale-110 transition-transform">
+                          <Trophy className="w-5 h-5 text-success shadow-neon-success" />
+                      </div>
+                      <div>
+                          <p className="text-[9px] font-bold text-success uppercase tracking-[0.2em] mb-1">Phase 3</p>
+                          <p className="font-heading text-[15px] font-bold text-white">Automated Scale</p>
+                      </div>
+                  </div>
               </div>
           </div>
 
