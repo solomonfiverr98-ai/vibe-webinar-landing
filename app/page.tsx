@@ -218,91 +218,158 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4: PROMISE */}
-      <section className="section-animate py-32 px-6 max-w-5xl mx-auto">
-        <span className="reveal text-primary font-body text-[12px] font-bold uppercase tracking-[0.3em] mb-6 block text-center">
+      {/* SECTION 4: PROMISE - THE BENTO DISCOVERY */}
+      <section className="section-animate py-40 px-6 max-w-7xl mx-auto relative">
+        {/* Background Visual Ornament */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full filter blur-[150px] -z-10 pointer-events-none" />
+        
+        <div className="text-center mb-32">
+          <span className="reveal text-primary font-body text-[12px] font-bold uppercase tracking-[0.4em] mb-6 block">
             THE NEW SYSTEM
-        </span>
-        <h2 className="reveal font-heading text-4xl md:text-7xl font-bold text-center mb-24">What You'll Discover</h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[
-                    { title: "The $1,000 Step-by-Step", detail: "The exact, repeatable system you can start using tonight." },
-                    { title: "No Experience Needed", detail: "How to go from zero to earning without technical knowledge." },
-                    { title: "The 3 Fatal Mistakes", detail: "The reason 95% of beginners fail and how to avoid it." },
-                    { title: "2026 Strategy", detail: "What's actually working right now—not 5 years ago." }
-                ].map((point, idx) => (
-                    <div key={idx} className="reveal glass-card rounded-[2.5rem] p-10 flex flex-col gap-6 transition-all hover:border-primary/50 hover:bg-primary/[0.01] hover:neon-glow group">
-                        <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center">
-                            <CheckCircle2 className="text-primary w-7 h-7" />
-                        </div>
-                        <div>
-                            <h3 className="font-heading text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{point.title}</h3>
-                            <p className="text-muted font-body text-lg leading-relaxed">{point.detail}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            
-            <div className="reveal relative hidden lg:block group parallax-container">
-                {/* Main Abstract Image */}
-                <div className="aspect-[3/4] relative rounded-[3rem] overflow-hidden border border-white/10 shadow-massive">
-                    <Image 
-                        src="/promise-abstract.png" 
-                        alt="The Future of Earning"
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110 parallax-img"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                </div>
-
-                {/* Floating Analytics Widget - ADDED TO FILL SPACE */}
-                <div className="parallax-widget absolute -top-12 -right-12 w-64 glass-card rounded-3xl p-6 shadow-massive border-primary/20 backdrop-blur-2xl z-20">
-                    <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                           <span className="text-[10px] font-bold text-primary uppercase tracking-widest">System Active</span>
-                        </div>
-                        <Zap className="w-3.5 h-3.5 text-primary" />
-                    </div>
-                    <div className="space-y-4">
-                        <div>
-                            <p className="text-muted text-[10px] uppercase font-bold tracking-wider mb-1">Total Verified Revenue</p>
-                            <p className="text-2xl font-heading font-black text-white">$1,240.22</p>
-                        </div>
-                        <div className="pt-3 border-t border-white/5 flex items-center justify-between">
-                            <div className="flex -space-x-2">
-                                {[1, 2, 3].map(i => (
-                                    <div key={i} className="w-6 h-6 rounded-full border border-background bg-surface-2 flex items-center justify-center text-[8px] font-bold">
-                                        {String.fromCharCode(64 + i)}
-                                    </div>
-                                ))}
-                            </div>
-                            <span className="text-[9px] font-medium text-muted">+14 today</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Floating "Next Session" Pill */}
-                <div className="parallax-widget absolute bottom-20 -left-12 bg-white text-background rounded-full px-6 py-3 shadow-xl z-20 flex items-center gap-3 scale-90 origin-right">
-                    <Clock className="w-4 h-4" />
-                    <span className="font-heading text-sm font-bold uppercase tracking-tight">Starts in 4h 12m</span>
-                </div>
-
-                {/* Floating Ornament Icon */}
-                <div className="absolute -bottom-6 right-6 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-neon rotate-12 z-20">
-                    <Zap className="text-background w-8 h-8" />
-                </div>
-            </div>
+          </span>
+          <h2 className="reveal font-heading text-5xl md:text-8xl font-bold tracking-tight mb-8">
+            What You'll <span className="text-primary italic">Discover</span>
+          </h2>
+          <p className="reveal text-secondary font-body text-xl max-w-2xl mx-auto opacity-60">
+            A precise, tactical breakdown of the exact system used to generate results without coding.
+          </p>
         </div>
 
-        <div className="reveal mt-20 text-center">
-            <a href="#register" className="group inline-flex items-center gap-3 bg-white text-background rounded-full px-12 py-5 font-heading text-xl font-black transition-all hover:bg-primary hover:text-background hover:scale-105 shadow-xl">
-                I'm Ready — Reserve My Spot <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Main Content Area (Bento Grid) */}
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+            {/* LARGE CARD: The Blueprint */}
+            <div className="reveal md:col-span-2 glass-card rounded-[3rem] p-12 flex flex-col md:flex-row gap-12 items-center group transition-all hover:border-primary/40 hover:neon-glow relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full group-hover:bg-primary/20 transition-all" />
+                <div className="flex-1 space-y-6">
+                    <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center shadow-lg">
+                        <Rocket className="text-primary w-7 h-7" />
+                    </div>
+                    <h3 className="font-heading text-3xl md:text-4xl font-bold group-hover:text-primary transition-colors">The 15-Minute Blueprint</h3>
+                    <p className="text-muted font-body text-lg leading-relaxed max-w-md">
+                        Setting up your income engine shouldn't take weeks. I'll show you how to go from <span className="text-white font-bold">zero to launched</span> in less time than a coffee break.
+                    </p>
+                    <div className="flex items-center gap-4 pt-4">
+                        <span className="px-5 py-2 rounded-full border border-white/5 bg-white/5 text-[11px] font-black uppercase tracking-widest text-primary">High Impact</span>
+                        <span className="px-5 py-2 rounded-full border border-white/5 bg-white/5 text-[11px] font-black uppercase tracking-widest text-white/40">Zero Code</span>
+                    </div>
+                </div>
+                <div className="w-full md:w-64 aspect-square relative rounded-[2rem] overflow-hidden border border-white/5 group-hover:border-primary/20 transition-all p-2 bg-gradient-to-br from-white/5 to-transparent">
+                    <Image 
+                        src="/promise-system-blueprint.png" 
+                        alt="System Blueprint"
+                        fill
+                        className="object-cover rounded-[1.5rem] grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
+                    />
+                </div>
+            </div>
+
+            {/* MEDIUM CARD: The Arsenal */}
+            <div className="reveal glass-card rounded-[2.5rem] p-10 flex flex-col gap-8 transition-all hover:border-primary/50 hover:bg-primary/[0.01] hover:neon-glow group h-full">
+                <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                    <Zap className="text-primary w-7 h-7" />
+                </div>
+                <div className="space-y-4 flex-1">
+                    <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors">The No-Code Toolkit</h3>
+                    <p className="text-muted font-body text-lg leading-relaxed">
+                        The exact 3 AI tools that handle 90% of your daily operations—allowing you to focus strictly on profit, not tech.
+                    </p>
+                </div>
+                <div className="pt-6 border-t border-white/5">
+                    <span className="text-primary text-[12px] font-black uppercase tracking-widest flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4" /> 100% Mobile Ready
+                    </span>
+                </div>
+            </div>
+
+            {/* MEDIUM CARD: The Scaling Loop */}
+            <div className="reveal glass-card rounded-[2.5rem] p-10 flex flex-col gap-8 transition-all hover:border-primary/50 hover:bg-primary/[0.01] hover:neon-glow group h-full">
+                <div className="bg-primary/10 border border-primary/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                    <Trophy className="text-primary w-7 h-7" />
+                </div>
+                <div className="space-y-4 flex-1">
+                    <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors">The Momentum Loop</h3>
+                    <p className="text-muted font-body text-lg leading-relaxed">
+                        Learn the repeatable strategy to turn your first $100 win into a consistent, scaling weekly income stream.
+                    </p>
+                </div>
+                <div className="pt-6 border-t border-white/5">
+                    <span className="text-primary text-[12px] font-black uppercase tracking-widest flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4" /> Proven 2026 Strategy
+                    </span>
+                </div>
+            </div>
+          </div>
+
+          {/* Sidebar Area (Roadmap & Status) */}
+          <div className="lg:col-span-4 h-full flex flex-col gap-8">
+            {/* THE ROADMAP WIDGET */}
+            <div className="reveal glass-card rounded-[2.5rem] p-10 bg-primary/[0.02] border-primary/20 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 blur-[40px] rounded-full" />
+                <div className="flex items-center gap-3 mb-10">
+                    <Calendar className="text-primary w-6 h-6" />
+                    <h4 className="font-heading text-xl font-bold tracking-tight">Webinar Roadmap</h4>
+                </div>
+                
+                <div className="space-y-8 relative flex-1">
+                    {/* Vertical Line */}
+                    <div className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-primary/20 to-transparent" />
+                    
+                    {[
+                        { time: "00m", title: "Success Stories & Proof", detail: "Real results from real people." },
+                        { time: "15m", title: "The Income Logic", detail: "Why this works for beginners." },
+                        { time: "35m", title: "System Setup Live", detail: "We build it in 15 mins." },
+                        { time: "60m", title: "The $1k Traffic Secret", detail: "10k free visitors logic." },
+                        { time: "90m", title: "Scaling & Bonuses", detail: "Your gift reveal." }
+                    ].map((step, i) => (
+                        <div key={i} className="relative pl-10 group/item">
+                            <div className="absolute left-[7px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-neon ring-4 ring-primary/20 transition-transform group-hover/item:scale-125" />
+                            <span className="text-primary font-body text-[10px] font-black uppercase tracking-widest block mb-1 opacity-60 group-hover/item:opacity-100 transition-opacity">
+                                {step.time}
+                            </span>
+                            <h5 className="font-heading text-[16px] font-bold text-white mb-1 group-hover/item:text-primary transition-colors">
+                                {step.title}
+                            </h5>
+                            <p className="text-muted font-body text-[13px] leading-relaxed line-clamp-1">
+                                {step.detail}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-12 bg-white/5 border border-white/5 rounded-2xl p-6">
+                    <p className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                        <Smartphone className="w-4 h-4" /> Live System Active
+                    </p>
+                    <div className="flex items-end justify-between">
+                        <div>
+                            <p className="font-heading text-2xl font-black text-white">$1,240.22</p>
+                            <p className="text-[9px] text-muted font-medium uppercase tracking-widest mt-1">Verified Revenue Today</p>
+                        </div>
+                        <div className="h-10 w-24 bg-primary/5 rounded-lg border border-primary/10 flex items-center justify-center overflow-hidden">
+                             {/* Simple SVG Wave Graph */}
+                             <svg viewBox="0 0 100 40" className="w-full h-full stroke-primary fill-none opacity-50">
+                                <path d="M0,30 Q10,10 20,25 T40,15 T60,28 T80,10 T100,20" strokeWidth="2" strokeLinecap="round" />
+                             </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM CTA: Re-using the premium button style */}
+        <div className="reveal mt-32 text-center">
+            <a href="#register" className="group relative inline-flex items-center gap-4 bg-white text-background rounded-full px-16 py-7 font-heading text-2xl font-black transition-all hover:bg-primary-hover hover:scale-105 shadow-xl hover:shadow-neon-glow overflow-hidden">
+                <span className="relative z-10">Access The Secrets Now</span>
+                <ArrowRight className="w-7 h-7 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
             </a>
+            <p className="text-muted font-body text-[12px] mt-8 flex items-center justify-center gap-2 font-medium opacity-50 uppercase tracking-[0.2em]">
+                <Shield className="w-4 h-4 text-primary" /> Verified Beginner Friendly Strategy
+            </p>
         </div>
       </section>
+
 
       {/* SECTION 5: AUTHORITY */}
       <section className="section-animate bg-surface py-32 px-6 overflow-hidden">
